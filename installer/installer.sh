@@ -105,7 +105,7 @@ install_firewall() {
 
 install_prereqs() {
     export DEBIAN_FRONTEND=noninteractive
-    NODEJS_VER="16"
+    NODEJS_VER="23"
 
     perform_step install_aliases "Updating .bashrc file with OriginTrail node aliases" > /dev/null 2>&1
     perform_step rm -rf /var/lib/dpkg/lock-frontend "Removing any frontend locks" > /dev/null 2>&1
@@ -122,11 +122,11 @@ install_prereqs() {
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     # This loads nvm bash_completion
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-    nvm install v16.20.1 > /dev/null 2>&1
-    nvm use v16.20.1 > /dev/null 2>&1
+    nvm install v23.0.0 > /dev/null 2>&1
+    nvm use v23.0.0 > /dev/null 2>&1
 
-    # Set nodejs 16.20.1 as default and link node to /usr/bin/
-    nvm alias default 16.20.1 > /dev/null 2>&1
+    # Set nodejs 23.0.0 as default and link node to /usr/bin/
+    nvm alias default 23.0.0 > /dev/null 2>&1
     sudo ln -s $(which node) /usr/bin/ > /dev/null 2>&1
     sudo ln -s $(which npm) /usr/bin/ > /dev/null 2>&1
 
